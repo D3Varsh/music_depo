@@ -154,5 +154,5 @@ The app is hosted on [Render](https://render.com) and is accessible at:
 
 Use these to explore the Django admin interface:
 
-- username="admin@example.com",
-- password="securepassword123"
+- username = admin@example.com
+- password = securepassword123
