@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6qs&8dvl%_14v8#(-t*n^n*61$&woy7-=d9_shpk%s@*7@53(0'
+# SECRET_KEY = 'django-insecure-6qs&8dvl%_14v8#(-t*n^n*61$&woy7-=d9_shpk%s@*7@53(0'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'dev-key-insecure')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 
 # Application definition
@@ -76,15 +81,20 @@ WSGI_APPLICATION = 'musicdepot.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'musicdepotdb',
+#         'USER': 'musicdepot_user',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+# Database configuration using dj-database-url
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'musicdepotdb',
-        'USER': 'musicdepot_user',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default='postgres://musicdepot_user:password@localhost:5432/musicdepotdb')
 }
 
 # Password validation
@@ -123,6 +133,8 @@ USE_TZ = True
 
 # Static Files Configuration
 STATIC_URL = '/static/'
+# Collect static files to a directory for production (Render)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
