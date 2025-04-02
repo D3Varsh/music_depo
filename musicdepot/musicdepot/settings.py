@@ -95,7 +95,7 @@ WSGI_APPLICATION = 'musicdepot.wsgi.application'
 
 # Database configuration using dj-database-url
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://musicdepot_user:password@localhost:5432/musicdepotdb')
+    'default': dj_database_url.config()
 }
 
 # Password validation
