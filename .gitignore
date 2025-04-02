@@ -1,0 +1,40 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+env/
+venv/
+ENV/
+
+# Django SQLite DB (in case it was ever generated)
+db.sqlite3
+
+# VSCode settings
+.vscode/
+
+# Environment variable or secret config files
+.env
+*.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Django migrations (optional: keep if versioning migrations)
+**/migrations/*.pyc
+**/migrations/__pycache__/
+
+# Compiled bytecode
+*.pyc
+
+# Personal or dev-only files (yours listed)
+password.txt
+test_queries.md
+walkthrough.md
+
+# Log files or temp
+*.log
+*.tmp
