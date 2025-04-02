@@ -14,6 +14,9 @@ This is the **Django-based backend** for the MusicDepo lesson management system.
 
 ---
 
+## ERD Diagram
+![ERD Diagram](music-depot-erd-v3.png)
+
 ## ⚙️ Getting Started (WSL / Ubuntu)
 
 ### 1. Clone the Repo
