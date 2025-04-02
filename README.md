@@ -138,3 +138,21 @@ This adds test clients, instructors, rooms, payments, payroll, and schedules.
     
 - REST API integration
     
+---
+
+## 🌐 Live Demo
+
+The app is hosted on [Render](https://render.com) and is accessible at:
+
+🔗 [https://music-depo.onrender.com](https://music-depo.onrender.com)
+
+> (Auto-redirects to `/admin` login)
+
+---
+
+## 🔐 Demo Credentials
+
+Use these to explore the Django admin interface:
+
+- username="admin@example.com",
+- password="securepassword123"
